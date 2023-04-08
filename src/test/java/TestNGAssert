@@ -1,0 +1,33 @@
+1. HARD ASSERT
+
+    JUnit'te Öğrendiğimiz Assertion Türü :
+         i. Assert.assertEquals( )
+         ii. Assert.assertTrue( )
+         iii. Assert.assertFalse( )
+
+    --> Assert methodlari kullanildiginda, bir assertion FAILED olursa execution durur, test method’nun geri
+    kalanı calismaz.
+
+    --> Test case’in neden başarısız olduğunu hemen anlamak için hard assertion’u tercih edebiliriz.
+
+    --> Birden fazla assert yapiyorsak assertion başarısız olursa, execution durur, onu duzeltip yeniden
+    calistirdiginizda baska bir assertion FAILED olabilir, her seferinde bir hatayi gormus ve duzeltmis olursunuz.
+    Testteki hatalari duzeltmek icin bu yontem cok uygun olur.
+
+2. SOFT ASSERT (VERIFICATION)
+
+    --> Eğer softAssert başarısız olursa test method’unun geri kalanini durdurmaz ve yürütmeye devam eder. İf
+    else statement’da olduğu gibi.
+
+       ● SoftAssert doğrulama (verification) olarak da bilinir.
+
+       ● SoftAssert kullanabilmemiz için object create etmemiz gerekir.
+
+         • 1.Adım: SoftAssert objesi olusturalim
+                        SoftAssert softAssert = new SoftAssert( );
+
+         • 2.Adım: Istedigimiz verification’lari yapalim
+                        softAssert.assertTrue( );
+
+         • 3.Adım: SoftAssert’in durumu raporlamasini isteyelim
+                        softAssert.assertAll( );

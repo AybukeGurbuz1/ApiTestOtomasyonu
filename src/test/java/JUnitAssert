@@ -1,0 +1,52 @@
+* Response ile ilgili tum genel bilgileri (statusCode, contentType, headers, statusLine vb.) assertThat( ) metodu
+ile yapabiliriz
+
+* Ayni sekilde response body’de bulunan value’lari da key’leri kullanarak assertThat( ) metodundan sonra
+body( ) metodu ve Matchers Class’ina ait metodlarla test edebiliriz.
+
+      ***  response.
+                then( ).
+                assertThat( ).
+                statusCode(200).
+                contentType(ContentType.JSON).
+                body("firstname",equalTo("Susan"),
+                    "lastname",equalTo("Wilson"),
+                    "totalprice",equalTo(643),
+                    "depositpaid",equalTo(false),
+                    "additionalneeds",equalTo(null));
+
+* Assert, bir test senaryosunun PASS veya FAILED durumunu belirlemede kullanilan yararlı bir
+  yöntemdir. Secilen metot ve yazilan boolean kosul’a gore test sonucu belirlenir.
+
+  *Assert yöntemleri, Java.lang.Object Class’ina bagli org.junit.Assert Class’i tarafından sağlanır.
+
+  ************************En cok kullandigimiz 3 Assert metodu;*************************************
+
+  1 ) Assert.assertTrue(koşul)
+      Yazilan kosul’un sonucu True ise test PASS, yoksa test FAILED olur
+
+             Assert.assertTrue( 20 > 15 ) --> TEST PASS
+                                -True-
+
+             Assert.assertTrue( 10 > 30 ) --> TEST FAIL
+                                -False-
+
+  2) Assert.assertFalse(koşul)
+     Yazilan kosul’un sonucu False ise test PASS, yoksa test FAILED olur
+
+             Assert.assertFalse( 40 > 50 ) --> TEST PASS
+                                 -False-
+
+             Assert. assertFalse( 30 > 20 ) --> TEST FAIL
+                                  -True-
+
+  3) Assert.assertEqual(expected, actual)
+     Yazilan expected ile actual esit ise test PASS, yoksa test FAILED olur
+
+             Assert.assertEquals( “Ali” , “Ali” ) --> TEST PASS
+                                     -True-
+
+             Assert. assertEquals( 30 , 20 )  --> TEST FAIL
+                                     -False-
+
+
